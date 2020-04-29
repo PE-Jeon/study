@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:study/crud/file/fileio.dart';
 import 'package:study/ui/text/textEditingController.dart';
 
+import 'crud/crudMain.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,8 +15,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Navigation(),
-      //home: FlutterDemo(storage: CounterStorage()),             //crud fileid.dart
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => Navigation(),
+        '/crudMain' : (context) => CRUDMain(),
+      }
+
+      //home: Navigation(),
+      //home: FlutterDemo(storage: CounterStorage()),             //crud fileio.dart
       //home: MyHomePage(title: 'Flutter Demo Home Page'),      //default widget
     );
   }
@@ -31,11 +39,13 @@ class Navigation extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   RaisedButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/crudMain');
+                    },
                     child: Text("CRUD"),
                   ),
                   RaisedButton(
@@ -54,22 +64,23 @@ class Navigation extends StatelessWidget {
               ),
               Padding(padding: EdgeInsets.all(10.0)),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   RaisedButton(
                     onPressed: null,
-                    child: Text("CRUD"),
+                    child: Text("Button4"),
                   ),
                   RaisedButton(
                     onPressed: null,
-                    child: Text("Button1"),
+                    child: Text("Button5"),
                   ),
                   RaisedButton(
                     onPressed: null,
-                    child: Text("Button2"),
+                    child: Text("Button6"),
                   ),
                   RaisedButton(
                     onPressed: null,
-                    child: Text("Button3"),
+                    child: Text("Button7"),
                   ),
                 ],),
             ],
