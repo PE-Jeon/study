@@ -37,21 +37,21 @@ class CounterStorage {
   }
 }
 
-class FlutterDemo extends StatefulWidget {
+class FileIO extends StatefulWidget {
   final CounterStorage storage;
 
-  FlutterDemo({Key key, @required this.storage}) : super(key: key);
+  FileIO({Key key, @required this.storage}) : super(key: key);
 
   @override
-  _FlutterDemoState createState() => _FlutterDemoState();
+  _FileIOState createState() => _FileIOState();
 }
 
-class _FlutterDemoState extends State<FlutterDemo> {
+class _FileIOState extends State<FileIO> {
   int _counter;
   Text _txt = Text("default text");
 
   getValueFromtxt() {
-    var value = _txt.data;
+    //var value = _txt.data;
   }
 
   @override
@@ -88,7 +88,7 @@ class _FlutterDemoState extends State<FlutterDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Reading and Writing Files')),
+      appBar: AppBar(title: Text('File IO Page')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -101,27 +101,37 @@ class _FlutterDemoState extends State<FlutterDemo> {
         ),
       ),
       floatingActionButton: Column(
-
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: "Increment",
             onPressed: _incrementCounter,
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+          ),
           FloatingActionButton(
+            heroTag: "Decrement",
             onPressed: _decrementCounter,
             tooltip: 'Decrement',
             child: Icon(Icons.remove),
           ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+          ),
           FloatingActionButton(
+            heroTag: "Remove",
             onPressed: _initializeCounter,
-            tooltip: 'Decrement',
+            tooltip: 'Remove',
             child: Icon(Icons.cancel),
+          ),
+          Padding(
+            padding: EdgeInsets.all(20.0),
           ),
         ],
       ),
-
     );
   }
 }

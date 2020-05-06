@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CRUDMain extends StatelessWidget {
+class FunctionTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("CRUDMain Page"),
+          title: Text("Function Test Page"),
         ),
         body: Center(
           child: Row(
@@ -16,25 +16,25 @@ class CRUDMain extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/FileIO');
+                      Navigator.pushNamed(context, '/test/AccountPermission');
                     },
-                    child: Text("File IO"),
+                    child: Text("Account Permission Test"),
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/MySQLIO');
+                      //Navigator.pushNamed(context, '/crudMain/MySQLIO');
                     },
                     child: Text("MySQL IO"),
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/FirebaseIO');
+                      //Navigator.pushNamed(context, '/crudMain/FirebaseIO');
                     },
                     child: Text("Firebase IO"),
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/CacheIO');
+                      //Navigator.pushNamed(context, '/crudMain/CacheIO');
                     },
                     child: Text("Cache IO"),
                   ),
@@ -46,13 +46,13 @@ class CRUDMain extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/ProviderIO');
+                      //Navigator.pushNamed(context, '/crudMain/ProviderIO');
                     },
                     child: Text("Provider"),
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/crudMain/BLOCIO');
+                      //Navigator.pushNamed(context, '/crudMain/BLOCIO');
                     },
                     child: Text("BLOC"),
                   ),

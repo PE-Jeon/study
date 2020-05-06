@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:study/crud/bloc/blocio.dart';
+import 'package:study/crud/cache/cache.dart';
 import 'package:study/crud/file/fileio.dart';
-import 'package:study/ui/text/textEditingController.dart';
-
+import 'package:study/crud/mysql/mysql.dart';
+import 'package:study/crud/provider/provider.dart';
 import 'crud/crudMain.dart';
+import 'crud/firebase/firebase.dart';
+import 'functiontest/accountpermission/accountpermission.dart';
+import 'functiontest/testMain.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,8 +22,27 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
+        //Main Page
         '/' : (context) => Navigation(),
+
+
+
+        //First Layers
         '/crudMain' : (context) => CRUDMain(),
+        '/test': (context) => FunctionTest(),
+
+        //Second Layers
+        '/crudMain/BLOCIO' : (context) => BOLCIO(),
+        '/crudMain/CacheIO' : (context) => CacheIO(),
+        '/crudMain/FileIO' : (context) => FileIO(storage: CounterStorage()),
+        '/crudMain/FirebaseIO' : (context) => FirebaseIO(),
+        '/crudMain/MySQLIO' : (context) => MySQLIO(),
+        '/crudMain/ProviderIO' : (context) => ProviderIO(),
+
+        '/test/AccountPermission' : (context) => AccountPermission(),
+
+
+
       }
 
       //home: Navigation(),
@@ -79,8 +103,10 @@ class Navigation extends StatelessWidget {
                     child: Text("Button6"),
                   ),
                   RaisedButton(
-                    onPressed: null,
-                    child: Text("Button7"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/test');
+                    },
+                    child: Text("Function Test"),
                   ),
                 ],),
             ],
