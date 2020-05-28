@@ -16,7 +16,7 @@ class FunctionTest extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/test/AccountPermission');
+                      Navigator.pushNamed(context, '/funcTest/AccountPermission');
                     },
                     child: Text("Account Permission Test"),
                   ),

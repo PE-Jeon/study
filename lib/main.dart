@@ -3,10 +3,15 @@ import 'package:study/crud/bloc/blocio.dart';
 import 'package:study/crud/cache/cache.dart';
 import 'package:study/crud/file/fileio.dart';
 import 'package:study/crud/mysql/mysql.dart';
+import 'package:study/crud/mysql/mysql_sample_todo_detail.dart';
 import 'package:study/crud/provider/provider.dart';
+import 'package:study/test.dart';
 import 'crud/crudMain.dart';
 import 'crud/firebase/firebase.dart';
+import 'crud/mysql/mysql_sample_todo_list.dart';
 import 'functiontest/accountpermission/accountpermission.dart';
+import 'functiontest/accountpermission/createuser.dart';
+import 'functiontest/accountpermission/userlist.dart';
 import 'functiontest/testMain.dart';
 
 void main() => runApp(MyApp());
@@ -25,23 +30,22 @@ class MyApp extends StatelessWidget {
         //Main Page
         '/' : (context) => Navigation(),
 
-
-
         //First Layers
-        '/crudMain' : (context) => CRUDMain(),
-        '/test': (context) => FunctionTest(),
+        '/test': (context) => test(),
 
-        //Second Layers
+        '/crudMain' : (context) => CRUDMain(),
         '/crudMain/BLOCIO' : (context) => BOLCIO(),
         '/crudMain/CacheIO' : (context) => CacheIO(),
         '/crudMain/FileIO' : (context) => FileIO(storage: CounterStorage()),
         '/crudMain/FirebaseIO' : (context) => FirebaseIO(),
+        '/crudMain/TodoList' : (context) => TodoList(),
         '/crudMain/MySQLIO' : (context) => MySQLIO(),
         '/crudMain/ProviderIO' : (context) => ProviderIO(),
 
-        '/test/AccountPermission' : (context) => AccountPermission(),
-
-
+        '/funcTest': (context) => FunctionTest(),
+        '/funcTest/AccountPermission' : (context) => AccountPermission(),
+        '/funcTest/AccountPermission/createUser': (context) => createUser(),
+        '/funcTest/AccountPermission/userList': (context) => userList(),
 
       }
 
@@ -81,8 +85,10 @@ class Navigation extends StatelessWidget {
                     child: Text("Button2"),
                   ),
                   RaisedButton(
-                    onPressed: null,
-                    child: Text("Button3"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/test');
+                    },
+                    child: Text("test"),
                   ),
                 ],
               ),
@@ -104,7 +110,7 @@ class Navigation extends StatelessWidget {
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/test');
+                      Navigator.pushNamed(context, '/funcTest');
                     },
                     child: Text("Function Test"),
                   ),

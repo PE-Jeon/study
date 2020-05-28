@@ -57,8 +57,10 @@ class CRUDMain extends StatelessWidget {
                     child: Text("BLOC"),
                   ),
                   RaisedButton(
-                    onPressed: null,
-                    child: Text("Button6"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/crudMain/TodoList');
+                    },
+                    child: Text("TodoList"),
                   ),
                   RaisedButton(
                     onPressed: null,

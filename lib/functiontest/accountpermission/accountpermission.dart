@@ -26,12 +26,48 @@ class _AccountPermissionState extends State<AccountPermission> {
                       onPressed: () {
                         if (test == 0) {
                           Navigator.pushNamed(
-                              context, '/test/AccountPermission');
+                              context, '/funcTest/AccountPermission');
                         } else {
-                          pupUp(context);
+                          pupUp(context, "Sorry, you don't have a permission",
+                              "Pelase contact to the Administrator");
                         }
                       },
                       child: Text("AccountPerm"),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            RaisedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/funcTest/AccountPermission/createUser');
+                              },
+                              child: Text("create user"),
+                            ),
+                            RaisedButton(
+                              onPressed: () {
+                              },
+                              child: Text("create user2"),
+                            ),
+                          ],
+                        ),
+                        Padding(padding: EdgeInsets.all(10.0)),
+                        Column(
+                          children: <Widget>[
+                            RaisedButton(
+                              onPressed: () {
+                              Navigator.pushNamed(context, '/funcTest/AccountPermission/userList');
+                              },
+                              child: Text("change to user1"),
+                            ),
+                            RaisedButton(
+                              onPressed: () {
+                              },
+                              child: Text("change to user2"),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ]),
             ],

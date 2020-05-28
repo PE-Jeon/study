@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-Widget pupUp(BuildContext context) {
+Widget pupUp(BuildContext context, String memo1, String memo2) {
 
   final _formKey = GlobalKey<FormState>();
+  debugPrint("Debug: memo1 : " + memo1);
+  debugPrint("Debug: memo2 : " + memo2);
+
 
   showDialog(
       context: context,
@@ -29,14 +32,15 @@ Widget pupUp(BuildContext context) {
                 key: _formKey,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(5.0),
-                      child: Text("Sorry, you have no permission."),
+                      child: Text(memo1, textAlign: TextAlign.center,),
                     ),
                     Padding(
                       padding: EdgeInsets.all(5.0),
-                      child: Text("Please contact to administrator."),
+                      child: Text(memo2, textAlign: TextAlign.center,),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(0.0),
